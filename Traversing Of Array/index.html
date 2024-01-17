@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traversing of Array</title>
+  </head>
+  <body>
+    <p>[88,34,67,42,1,90,101,5001,5]</p>
+    <input type="number" id="element" />
+    <button onclick="getElement()">Get Element</button>
+
+    <script>
+    let arr = [88, 34, 67, 42, 1, 90, 101, 5001, 5];
+
+    //   for (let i = 0; i < arr.length; i++) {
+    //     document.write(`Array at index number ${i} is ${arr[i]} <br>`);
+    //   }
+
+    function getElement() {
+        let el = document.getElementById("element").value;
+        el = parseInt(el);
+        if (el >= arr.length) {
+          document.write("Please Enter Valid input");
+        } else if (el < 0) {
+          document.write("Please Enter Valid input , Negative Values are not allowed");
+        } else {
+          document.write(`Array at index number ${el} is ${arr[el]}`);
+        }
+    }
+    </script>
+  </body>
+</html>

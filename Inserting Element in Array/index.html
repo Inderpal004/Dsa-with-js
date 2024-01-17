@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insert Element in Array</title>
+  </head>
+  <body>
+    <p>[47, 53, 90, 29, 67]</p>
+    <input type="number" placeholder="Enter Value" id="newEl" />
+    <input type="number" placeholder="Enter Position" id="position" />
+    <button onclick="addValue()">Insert</button>
+    <button onclick="addValueBySplice()">Insert by Inbuilt Method</button>
+
+    <script>
+      function addValue() {
+        let arr = [47, 53, 90, 29, 67];
+        let newEl = document.getElementById("newEl").value;
+        newEl = parseInt(newEl);
+        let position = document.getElementById("position").value;
+        position = parseInt(position);
+
+        for (let i = arr.length - 1; i >= 0; i--) {
+          if (position > arr.length || position < 0) {
+            console.log("Enter valid input");
+            return;
+          }
+          if (i >= position) {
+            arr[i + 1] = arr[i];
+            if (i === position) {
+              arr[i] = newEl;
+            }
+          }
+        }
+        console.log(arr);
+      }
+
+      // Inbuilt method (splice)
+
+      function addValueBySplice() {
+        let arr = [47, 53, 90, 29, 67];
+        let newEl = document.getElementById("newEl").value;
+        newEl = parseInt(newEl);
+        let position = document.getElementById("position").value;
+        position = parseInt(position);
+        
+        if (position < 0 || position > arr.length) {
+          console.log("Enter a valid position within the array range");
+          return;
+        }
+
+        arr.splice(position, 0, newEl);
+        console.log(arr);
+      }
+    </script>
+  </body>
+</html>
