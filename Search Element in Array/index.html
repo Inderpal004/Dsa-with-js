@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Element in Array</title>
+</head>
+
+<body>
+    <p>[34, 90, 101, 23, 48, 99, 23]</p>
+    <input type="number" placeholder="Enter value to search" id="searchVal">
+    <button onclick="searchArr()">Search</button>
+
+
+    <script>
+        let data = [34, 90, 101, 23, 48, 99, 23];
+        function searchArr() {
+            let item = document.getElementById('searchVal').value;
+            item = parseInt(item);
+            for (let i = 0; i < data.length; i++) {
+                if (data[i] === item) {
+                    console.log(`Array ${data[i]} is at index no. ${i}`);
+                }
+            }
+        }
+
+        // inbuilt method (indexOf)
+        let item = 90;
+        console.log(data.indexOf(item));
+    </script>
+</body>
+
+</html>

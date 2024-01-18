@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Element in Array</title>
+</head>
+
+<body>
+    <!-- Let's go through how the shifting of array elements works in the loop:
+
+```javascript
+for (let i = position; i < data.length; i++) {
+    data[i] = data[i + 1];
+}
+```
+
+This loop starts from the specified `position` and iterates until the end of the array (`data.length`). In each iteration, it shifts the element at the current index (`i`) to the left by copying the value from the next index (`i + 1`).
+
+Here's a step-by-step breakdown:
+
+1. **Initial state** (example values): `[3, 91, 43, 101, 78, 23]`
+
+2. **Assume `position` is 2** (index of the element to be deleted).
+
+3. **First iteration** (`i = 2`): `data[2] = data[3]`, array becomes `[3, 91, 101, 101, 78, 23]`
+
+4. **Second iteration** (`i = 3`): `data[3] = data[4]`, array becomes `[3, 91, 101, 78, 78, 23]`
+
+5. **Third iteration** (`i = 4`): `data[4] = data[5]`, array becomes `[3, 91, 101, 78, 23, 23]`
+
+6. **Fourth iteration** (`i = 5`): `data[5] = data[6]` (Note: `data[6]` is undefined), array becomes `[3, 91, 101, 78, 23, undefined]`
+
+7. The loop ends, and the length of the array is reduced by 1.
+
+So, after the loop and reducing the length, the array becomes `[3, 91, 101, 78, 23]`, effectively shifting the elements to the left starting from the specified position. -->
+
+    <p>[3, 91, 43, 101, 78, 23]</p>
+    <input type="number" placeholder="Enter index no. to delete" id="inputVal" />
+    <button onclick="deleteEl()">Delete</button>
+
+    <script>
+        let data = [3, 91, 43, 101, 78, 23];
+        function deleteEl() {
+            let position = document.getElementById("inputVal").value;
+            position = parseInt(position);
+            for (let i = position; i < data.length; i++) {
+                if (position > data.length || position < 0) {
+                    console.log("Enter valid input");
+                    return;
+                }
+                data[i] = data[i + 1];
+            }
+            data.length = data.length - 1;
+            console.log(data);
+        }
+
+        // inbuilt method (splice)
+        let position = 2;
+        data.splice(position,1);
+        console.log(data);
+    </script>
+</body>
+
+</html>

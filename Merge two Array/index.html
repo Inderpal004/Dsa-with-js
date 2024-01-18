@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Merge Two Array</title>
+</head>
+
+<body>
+
+    <script>
+        let data = [23, 90, 78, 1001, 67, 34];
+        let data2 = [1, 23, 45, 2005, 7];
+        let data3 = [];
+
+        for (let i = 0; i < data.length; i++) {
+            data3[i] = data[i];
+        }
+        for (let i = 0; i < data2.length; i++) {
+            data3[data.length + i] = data2[i];
+        }
+
+        console.log(data3);
+
+        // inbuilt methods are :-
+
+        // spread operator
+        let data4 = [...data,...data2]
+        console.log(data4);
+
+        // concat
+        let data5 = data.concat(data2);
+        console.log(data5);
+
+    </script>
+</body>
+
+</html>
